@@ -1,4 +1,4 @@
-## 유용한 Linux Command
+## Linux Commands Cheatsheet
 
 ### sed
 ```bash
