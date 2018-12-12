@@ -1,4 +1,4 @@
-## 유용한 bash command
+## 유용한 Linux Command
 
 ### sed
 ```bash
