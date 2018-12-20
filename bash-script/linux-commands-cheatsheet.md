@@ -40,7 +40,10 @@ resize2fs testimg 2G    # testimg의 ext계열 filesystem을 2G로 resize
 ## Examples
 ### block device를 만들고 ext4 file system을 생성한 뒤 resize하기
 ```bash
-dd if=/dev/zero of=testimg bs=1M count=1024
-mkfs.ext4 testimg
-resize2fs testimg 2G
+#!/bin/bash
+BLK_DEV="testimg"
+
+dd if=/dev/zero of=${BLK_DEV} bs=1M count=1024
+mkfs.ext4 ${BLK_DEV}
+resize2fs ${BLK_DEV} 2G
 ```
