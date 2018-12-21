@@ -27,3 +27,4 @@ UUID=ED4A-A405  /boot/efi       vfat    umask=0077      0       1
    * http://webdir.tistory.com/101
    * https://www.geeksforgeeks.org/linux-file-hierarchy-structure/
    * http://coffeenix.net/doc/kuls/file_system-4.html
+   * http://jikime.tistory.com/448
