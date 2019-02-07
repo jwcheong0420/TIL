@@ -42,3 +42,10 @@ joowon>~/work/hobby$ git remote -v
 origin	https://github.com/jwcheong0420/TIL.git (fetch)
 origin	https://github.com/jwcheong0420/TIL.git (push)
 ```
+
+### git remote branch 상황을 local에 update하기
+local에서 git branch -a를 했을 때 이미 remote에서 지워진 branch임에도 불구하고 목록에 나오는 경우가 있다.
+아래의 command를 사용하여 remote 상황을 local에 update해보자.
+```bash
+joowon>~/work/hobby$ git remote update origin --prune
+```
