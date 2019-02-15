@@ -13,6 +13,7 @@ joowon>~/work/hobby$ git add .gitignore
 joowon>~/work/hobby$ git commit
 joowon>~/work/hobby$ git push origin master
 ```
+참고 사이트 : [git ignore generator](https://www.gitignore.io/)
 
 ### git remote url 설정
 git repo 주소가 바뀐 경우 push할 때 아래와 같은 경고 문구가 뜬다.
