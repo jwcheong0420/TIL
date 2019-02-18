@@ -50,3 +50,6 @@ local에서 git branch -a를 했을 때 이미 remote에서 지워진 branch임�
 ```bash
 joowon>~/work/hobby$ git remote update origin --prune
 ```
+
+### 여담1) git bash 사용 시 branch 이름의 대소문자 구분하지 않음 주의
+git 차원에서는 구분되나 git bash(MINGW64)에서는 구분되지 않았다... 주의하자
