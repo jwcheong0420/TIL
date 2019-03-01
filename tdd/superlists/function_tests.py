@@ -1,34 +1,30 @@
 import unittest
 from selenium import webdriver
 
-class NewVisitorTest(unittest.TestCase):
-	def setUp(self):
-		self.browser = webdriver.Chrome('chromedriver')
+# Functional Test == Acceptance(합격) Test == End-to-End Test
 
-	def tearDown(self):
+class NewVisitorTest(unittest.TestCase): # tests are organised into classes, which inherit from 'unittest.TestCase'
+	# 'Test Fixture'
+	def setUp(self):		# 'setUp' is special method which get run before each test
+		self.browser = webdriver.Chrome('chromedriver')
+		self.browser.implicitly_wait(10)	# 'implicitly_wait(n)' waits n seconds to load HTML element
+	def tearDown(self):		# 'tearDown' is special method which get run after each test
 		self.browser.quit()
 
+	# 'Test Case'
+	# : 'Test Runner' runs methods that start with 'test_' by ascending order
 	def test_visitPageAndAddSchedule(self):
-		# 사용자 A가 일정 입력 홈페이지에 방문한다
+		## Edith has heard about a cool new online to-do app
+		## She goes to check out its homepage
 		self.browser.get('http://localhost:8000')
 
-		# 홈페이지 타이틀이 'Scheduler'임을 확인하고 제대로 방문한 것을 확인한다
-		self.assertIn('일정관리', self.browser.title)
-		self.fail('테스트 종료')
+		## She notices the page title and header mention to-do lists
+		self.assertIn('To-Do', self.browser.title)	# 'assertIn(a, b)' makes assertions when a is not in b
+		self.fail('Finish the test!')	# 'fail()' just fails no matter what
 
-		# 일정 입력 페이지로 이동한다
+		## She is invited to enter a to-do item straight away
+		## and so on ...
 
-		# A는 텍스트 박스에 'TDD 공부하기'를 입력한다
-
-		# A가 엔터를 누르면 페이지 새로고침 -> 일정 목록 보여준다
-
-		# '1: TDD 공부하기'가 첫 번째 할 일로 일정 목록에 뜬다
-
-		# A가 텍스트박스에 추가로 'python 공부하기'를 입력한다
-
-		# 페이지 새로고침 -> 일정 목록에 두 개가 뜸
-
-		# A 자러감
-
+# 'unittest.main()' launches the unittest 'Test Runner'
 if __name__ == '__main__':
-	unittest.main(warnings = 'ignore')
+	unittest.main(warnings = 'ignore')		# 'warnings = \'ignore\'' avoids printing too many warning messages
