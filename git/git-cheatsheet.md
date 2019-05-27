@@ -144,5 +144,8 @@ merge는 dev를 master로 합칠 때처럼 두 브랜치를 합친다라는 의�
 그리고 rebase를 할 때 방향을 헷갈리지 않도록 주의해야 한다.
 재정렬되는 대상 브랜치의 commit들의 hash값이 바뀌기 때문에 방향을 헷갈렸다간 conflict가 날 수도 있다.
 
+### What's next?
+merge bubble 그리고 git pull --rebase
+
 ### 여담1) git bash 사용 시 branch 이름의 대소문자 구분하지 않음 주의
 git 차원에서는 구분되나 git bash(MINGW64)에서는 구분되지 않았다... 주의하자
