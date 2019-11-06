@@ -1,0 +1,28 @@
+#!/bin/python3
+
+import math
+import os
+import random
+import re
+import sys
+
+# Complete the repeatedString function below.
+def repeatedString(s, n):
+    if s.count('a') == 0:
+        return 0
+    else:
+        # return (n // len(s)) * s.count('a') + s.count('a', 0, n % len(s))   # Time Exceed
+        return (n // len(s)) * s.count('a') + s[:n%len(s)].count('a')
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    n = int(input())
+
+    result = repeatedString(s, n)
+
+    fptr.write(str(result) + '\n')
+
+    fptr.close()
