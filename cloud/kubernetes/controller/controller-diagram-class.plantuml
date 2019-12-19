@@ -1,0 +1,256 @@
+@startuml
+
+interface Controller {
+    Run()
+    HasSynced()
+    ' LastSyncResourceVersion()
+}
+
+class Config {
+    ' Queue
+    ' ListerWatcher
+    Process : ProcessFunc
+    ObjectType : runtime.Object
+    ' FullResyncPeriod : time.Duration
+    ' ShouldResync : ShouldResyncFunc
+    ' RetryOnError : bool
+}
+
+class controller {
+    ' reflectorMutex : sync.RWMutex
+    ' clock : clock.Clock
+    processLoop()
+}
+
+interface Store {
+    Add()
+    Update()
+    Delete()
+    List()
+    ListKeys()
+    Get()
+    GetByKey()
+    Replace()
+    Resync()
+}
+
+interface ThreadSafeStore {
+    Add()
+    Update()
+    Delete()
+    Get()
+    List()
+    ListKeys()
+    Replace()
+    Index()
+    IndexKeys()
+    ListIndexFuncValues()
+    ByIndex()
+    GetIndexers()
+    AddIndexers()
+    Resync()
+}
+
+class threadSafeMap {
+    lock : sync.RWMutex
+    items : map[string]interface{}
+}
+
+class Indices <<map[String]Index>> {
+}
+
+class Index << map[string]set.String> >> {
+}
+
+class Indexers <<map[string]IndexFunc>> {
+}
+
+class cache {
+    keyFunc : KeyFunc
+}
+
+interface Indexer {
+    Index()
+    IndexKeys()
+    ListIndexFuncValues()
+    ByIndex()
+    GetIndexers()
+    AddIndexers()
+}
+
+interface Queue {
+    Store
+    Pop()
+    AddIfNotPresent()
+    HasSynced()
+    Close()
+}
+
+class DeltaFIFO {
+    queue : []String
+    ' KeyOf()
+    ' addIfNotPresent()
+    ' queueActionLocked()
+    ' listLocked()
+    ' IsClosed()
+    ' syncKeyLocked()
+}
+
+class Deltas <<map[string]Delta>>{
+    ' Oldest()
+    ' Newest()
+}
+
+class Delta {
+    Type : DeltaType
+    Object
+}
+
+class Reflector {
+    name : string
+    ' expectedTypeName : string
+    ' expectedType : reflect.Type
+    ' expectedGVK : *schema.GroupVersionKind
+    store : Store
+    ' period : time.Duration
+	' resyncPeriod : time.Duration
+	' ShouldResync : func() bool
+    ' clock : clock.Clock
+    ' lastSyncResourceVersion : string
+    ' isLastSyncResourceVersionGone : bool
+    ' lastSyncResourceVersionMutex : sync.RWMutex
+    ' WatchListPageSize : int64
+    Run()
+    resyncChan()
+    ListAndWatch()
+    syncWith()
+    watchHandler()
+    ' LastSyncResourceVersion()
+    ' setLastSyncResourceVersion()
+    ' relistResourceVersion()
+    ' setIsLastSyncResourceVersionExpired()
+}
+
+interface SharedInformer {
+    AddEventHandler()
+    ' AddEventHandlerWithResyncPeriod()
+    GetStore()
+    GetController()
+}
+
+interface SharedIndexInformer {
+    AddIndexers()
+    GetIndexer()
+}
+
+class sharedIndexInformer {
+	' cacheMutationDetector : MutationDetector
+	objectType : runtime.Object
+    ' resyncCheckPeriod : time.Duration
+    ' defaultEventHandlerResyncPeriod : time.Duration
+    ' clock : clock.Clock
+    ' started : bool
+    ' stopped : bool
+    ' startedLock : sync.Mutex
+    ' blockDeltas : sync.Mutex
+    HandleDeltas()
+}
+
+class ResourceEventHandlerFuncs {
+    AddFunc
+    UpdateFunc
+    DeleteFunc
+}
+
+interface ResourceEventHandler {
+    OnAdd()
+    OnUpdate()
+    OnDelete()
+}
+
+class sharedProcessor {
+    ' listenersStarted : bool
+    ' listenersLock : sync.RWMutex
+    ' clock : clock.Clock
+    ' wg : wait.Group
+}
+
+class processorListener {
+    ' nextCh : chan interface{}
+	' addCh  : chan interface{}
+    ' pendingNotifications : buffer.RingGrowing
+    ' requestedResyncPeriod : time.Duration
+    ' resyncPeriod : time.Duration
+    ' nextResync : time.Time
+    ' resyncLock : sync.Mutex
+    add()
+    pop()
+    run()
+    shouldResync()
+    determineNextResync()
+    setResyncPeriod()
+}
+
+interface Lister {
+    List()
+}
+
+interface Watcher {
+    Watch()
+}
+
+interface ListerWatcher {
+}
+
+class ListWatch {
+    ListFunc : ListFunc
+    WatchFunc : WatchFunc
+    ' DisableChunking : bool
+}
+
+interface Getter {
+    Get()
+}
+
+Lister <|-- ListerWatcher
+Watcher <|-- ListerWatcher
+ListerWatcher <|.. ListWatch
+
+Controller <|.. controller
+controller *-- Config : config
+controller *-- Reflector : reflector
+Config --> Queue : Queue
+Config --> ListerWatcher : ListerWatcher
+
+Reflector *-- Store : store
+Reflector --> ListerWatcher : listerWatcher
+
+Queue <|.. DeltaFIFO
+Store <|.. DeltaFIFO
+DeltaFIFO "1" o-- "many" Deltas : items
+Deltas "1" --> "many" Delta
+
+Store <|-- Indexer
+Indexer <|.. cache
+
+cache --> ThreadSafeStore : cacheStorage
+
+ThreadSafeStore <|.. threadSafeMap
+threadSafeMap --> Indices : indices
+threadSafeMap --> Indexers : indexers
+Indices "1" --> "many" Index
+Indexers "1" --> "many" IndexFunc
+
+SharedInformer <|-- SharedIndexInformer
+SharedIndexInformer <|.. sharedIndexInformer
+sharedIndexInformer *-- Indexer : indexer
+sharedIndexInformer --> Controller : controller
+sharedIndexInformer *-- sharedProcessor : processor
+sharedIndexInformer --> ListerWatcher : listerWatcher
+
+sharedProcessor "1" --> "many" processorListener : listeners
+sharedProcessor "1" --> "many" processorListener : syncingListeners
+processorListener --> ResourceEventHandler : handler
+ResourceEventHandler <|.. ResourceEventHandlerFuncs
+
+@enduml

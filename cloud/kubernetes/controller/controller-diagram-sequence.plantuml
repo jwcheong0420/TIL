@@ -1,0 +1,34 @@
+@startuml
+
+activate sharedIndexerInformer #FFBBBB
+-> sharedIndexerInformer : Run()
+
+create DeltaFIFO
+sharedIndexerInformer -> DeltaFIFO : NewDeltaFIFO()
+
+create controller
+sharedIndexerInformer -> controller : New()
+
+activate controller #FFFFBB
+sharedIndexerInformer -> controller : Run()
+
+create Reflector
+controller -> Reflector : NewReflector()
+activate Reflector #BBFFFF
+controller -> Reflector : <<async>> Run()
+
+loop every second
+    controller -> controller : processLoop()
+end
+
+loop every Reflector.period
+    Reflector -> Reflector : ListAndWatch()
+end
+
+
+
+
+
+Reflector -> DeltaFIFO : Add()
+
+@enduml

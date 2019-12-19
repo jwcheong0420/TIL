@@ -1,0 +1,57 @@
+@startuml
+
+class FooController {
+    GroupVersionKind
+    ' Kind에 대한 group과 version까지 다 있어야 controller의 type을 정할 수 있다
+    lister : fooLister
+    queue : workqueue
+    Run()
+}
+FooController -- fooInformer : <<use fooLister of informer>>
+FooController o-- fooLister
+
+class fooLister {
+    indexer : Indexer
+}
+fooLister o-- Indexer : indexer
+
+interface Indexer {
+}
+
+class fooInformer {
+    Informer()
+    Lister()
+}
+fooInformer --> fooLister : <<return of Lister()>>
+
+interface SharedInformerFactory {
+    InformerFor()
+}
+note as informernote
+    Informer() SharedIndexerInformer{
+        return factory.InformerFor()
+    }
+
+end note
+SharedInformerFactory -- informernote
+informernote -- fooInformer
+
+class sharedIndexerInformer {
+    AddEventHandler()
+}
+informernote -- sharedIndexerInformer
+sharedIndexerInformer -- ResourceEventHandlerFuncs : <<param of AddEventHandler()>>
+
+interface ResourceEventHandler {
+    OnAdd()
+    OnUpdate()
+    OnDelete()
+}
+
+class ResourceEventHandlerFuncs {
+    AddFunc
+    UpdateFunc
+    DeleteFunc
+}
+ResourceEventHandlerFuncs ..|> ResourceEventHandler
+@enduml

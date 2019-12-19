@@ -1,0 +1,27 @@
+@startuml
+
+class ReplicaSetController {
+    GroupVersionKind
+    podLister : PodLister
+    rsLister : ReplicaSetLister
+    queue : workqueue
+    Run()
+}
+ReplicaSetController -- replicaSetInformer : <<use podLister, rsLister of informer>>
+
+class podLister {
+}
+podLister --> Indexer : indexer
+
+class replicaSetLister {
+}
+interface Indexer {
+}
+replicaSetLister --> Indexer : indexer
+
+class replicaSetInformer {
+}
+replicaSetInformer --> podLister : <<return of Lister()>>
+replicaSetInformer --> replicaSetLister : <<return of Lister()>>
+
+@enduml

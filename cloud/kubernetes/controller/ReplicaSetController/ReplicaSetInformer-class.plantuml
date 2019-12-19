@@ -1,0 +1,46 @@
+@startuml
+
+interface ReplicaSetLister {
+    Lister()
+    ReplicaSets()
+    ReplicaSetListerExpansion
+}
+class replicaSetLister {
+}
+interface Indexer {
+}
+ReplicaSetLister <|.. replicaSetLister
+replicaSetLister --> Indexer : indexer
+
+interface SharedInformerFactory {
+    Start()
+    sharedIndexInformer InformerFor()
+}
+
+interface ReplicaSetInformer {
+    sharedIndexInformer Informer()
+    Lister()
+}
+
+class replicaSetInformer {
+	' tweakListOptions : internalinterfaces.TweakListOptionsFunc
+	namespace : string
+    defaultInformer()
+}
+
+interface ReplicaSetNamespaceLister {
+    List()
+    Get()
+    ReplicaSetNamespaceListerExpansion
+}
+class replicaSetNamespaceLister {
+    namespace : string
+}
+ReplicaSetNamespaceLister <|.. replicaSetNamespaceLister
+replicaSetNamespaceLister --> Indexer : indexer
+ReplicaSetLister ..> ReplicaSetNamespaceLister : <<ReplicaSets(namespace)>>
+
+ReplicaSetInformer <|.. replicaSetInformer
+replicaSetInformer --> SharedInformerFactory
+
+@enduml
