@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    k8s-app: gpu-metrics-exporter
+  name: gpu-metrics-exporter
+  namespace: monitoring
+spec:
+  endpoints:
+  - interval: 15s
+    port: pod-metric
+    path: /gpu/metrics
+  - interval: 15s
+    port: node-metric
+    path: /dcgm.prom
+  selector:
+    matchLabels:
+      k8s-app: gpu-metrics-exporter
