@@ -4,6 +4,10 @@
 
 ## 장점
 1. 이름을 가질 수 있다.
+    - 생성자의 signature(method 이름 + 매개 변수)로는 해당 객체가 어떤 특성을 갖고 있는 지 알기 어렵지만,
+    BigInteger.probablePrime()과 같은 static factory method는 '값이 소수인 BigInteger 객체를 반환'한다는 의미가 명확해짐
+    - 여러 개의 생성자 필요하다면, signature가 다른 여러 개의 static factory method로 바꾸면 됨
+
 2. 호출될 때마다 인스턴스를 새로 생성하지는 않아도 된다.
 3. 반환 타입의 하위 타입 객체를 반환할 수 있는 능력이 있다.
 4. 입력 매개변수에 따라 매번 다른 클래스의 객체를 반환할 수 있다.
