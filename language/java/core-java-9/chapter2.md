@@ -23,24 +23,24 @@
 
 ### 값을 사용한 호출
 * method의 매개변수로 객체를 넘겨주면, 해당 method는 객체 참조의 사본을 얻음
-```java
-public class EvilManager {
-    private Random generator;
-    public void giveRandomRaise(Employee e) {
-        double percentage = 10 * generator.nextGaussian();
-        e.raiseSalary(percentage);  // 매개변수로 넘어온 fred를 method 내의 e로 복사. 참조를 복사하므로 같은 인스턴스를 바라보고 있음. 따라서 fred의 salary가 변경됨.
+    ```java
+    public class EvilManager {
+        private Random generator;
+        public void giveRandomRaise(Employee e) {
+            double percentage = 10 * generator.nextGaussian();
+            e.raiseSalary(percentage);  // 매개변수로 넘어온 fred를 method 내의 e로 복사. 참조를 복사하므로 같은 인스턴스를 바라보고 있음. 따라서 fred의 salary가 변경됨.
+        }
+        public void replceWithZombie(Employee e) {
+            e = new Employee("", 0);    // 매개변수로 넘어온 fred가 method 내에서 새로운 객체 변경되었음. fred에는 영향을 미치지 않음.
+        }
+        public static void main(String[] args) {
+            Employee fred = new Employee("fred", 100);
+            EvilManager boss = new EvilManager();
+            boss.giveRandomRaise(fred);
+            boss.replceWithZombie(fred);
+        }
     }
-    public void replceWithZombie(Employee e) {
-        e = new Employee("", 0);    // 매개변수로 넘어온 fred가 method 내에서 새로운 객체 변경되었음. fred에는 영향을 미치지 않음.
-    }
-    public static void main(String[] args) {
-        Employee fred = new Employee("fred", 100);
-        EvilManager boss = new EvilManager();
-        boss.giveRandomRaise(fred);
-        boss.replceWithZombie(fred);
-    }
-}
-```
+    ```
 
 ### 초기화 블록
 ```java
@@ -76,12 +76,12 @@ public class CreditCardForm {
 
 ### final
 * final 제어자를 변경 가능한 객체를 가리키는 참조에 사용하면 참조가 변하지 않을 뿐, 객체의 내용을 변경하는 것은 문제 없음
-```java
-public class Person {
-    private final ArrayList<Person> friends = new ArrayList<>();
-    // friends에 element를 추가하는 것은 괜찮음
-}
-```
+    ```java
+    public class Person {
+        private final ArrayList<Person> friends = new ArrayList<>();
+        // friends에 element를 추가하는 것은 괜찮음
+    }
+    ```
 
 ### factory method
 * [effective java item1 참고](../effective-java/item1-static-factory-method/)
@@ -89,6 +89,15 @@ public class Person {
 ### jar
 * class file을 아카이브화하여 JAR파일을 만드는 유틸리티
 * 보통 라이브러리를 묶을 때 사용
+
+### 접근 제어자
+| |public|protected|default|private|
+|------|:---------:|:---------:|:---------:|:---------:|
+|같은 패키지, 같은 클래스|O|O|O|O|
+|같은 패키지, 상속 관계|O|O|O|**X**|
+|같은 패키지, 상속 관계 아님|O|O|O|**X**|
+|다른 패키지, 상속 관계|O|O|**X**|**X**|
+|다른 패키지, 상속 관계 아님|O|**X**|**X**|**X**|
 
 ### 중첩 클래스(nested class)
 * static nested class
@@ -107,3 +116,5 @@ public class Person {
             }
         }
         ```
+* 더 살펴볼 링크
+    * http://hong.adfeel.info/backend/java5/

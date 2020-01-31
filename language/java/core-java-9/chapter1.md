@@ -32,18 +32,18 @@
 * 산술연산을 위한 class가 아니므로 instance에 저장된 값을 변경할 수 없음
 * boxing
     * boxing : primitive -> wrapper class
-    ```java
-    Integer number1 = new Integer(42);
-    ```
+        ```java
+        Integer number1 = new Integer(42);
+        ```
     * unboxing : wrapper -> primitive class
-    ```java
-    int number2 = number1.intValue();
-    ```
+        ```java
+        int number2 = number1.intValue();
+        ```
     * Java 5이후부터는 auto boxing/unboxing 지원
-    ```java
-    Integer number3 = 30;   // auto boxing
-    int number4 = number3;  // auto unboxing
-    ```
+        ```java
+        Integer number3 = 30;   // auto boxing
+        int number4 = number3;  // auto unboxing
+        ```
 
 ### Arrays와 Collections
 * Arrays : primitive type(String은 예외)의 배열을 다루기 위한 다양한 알고리즘이 static method로 구현되어 있는 class
