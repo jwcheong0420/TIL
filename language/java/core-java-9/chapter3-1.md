@@ -125,7 +125,9 @@
 
 * 인터페이스의 예
     * Comparable
+        * [연습 코드](../../../practice-coding/programmers/test-kit/01-hash/4-level3/solution2.java)
     * Comparator
+        * [연습 코드](../../../practice-coding/programmers/test-kit/01-hash/4-level3/solution1.java)
     * Runnable
     * 사용자 인터페이스 콜백
             
