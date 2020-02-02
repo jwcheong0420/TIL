@@ -1,4 +1,5 @@
 ## 완주하지 못한 선수
+https://programmers.co.kr/learn/courses/30/lessons/42576
 
 ### 문제 요약
 * 마라톤 참가자 중 1명만 완주하지 못했다고 할 때, 그 선수의 이름을 출력하라

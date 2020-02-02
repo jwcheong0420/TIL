@@ -1,4 +1,5 @@
 ### 전화번호 목록
+https://programmers.co.kr/learn/courses/30/lessons/42577
 
 #### 문제 요약
 * 전화번호 배열(phone_book)에 있는 번호들 중, 한 번호가 다른 번호의 접두어일 경우 false를 return

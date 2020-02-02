@@ -1,4 +1,5 @@
 ### K번째 수
+https://programmers.co.kr/learn/courses/30/lessons/42748
 
 #### 문제 요약
 * 배열에서 i번째부터 j번째의 수를 오름차순으로 정렬하여 k번째에 있는 수를 구하라

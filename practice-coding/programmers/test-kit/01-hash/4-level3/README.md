@@ -1,4 +1,5 @@
 ### 베스트 앨범
+https://programmers.co.kr/learn/courses/30/lessons/42579
 
 #### 문제 요약
 * genres[i]은 고유번호 i의 장르
