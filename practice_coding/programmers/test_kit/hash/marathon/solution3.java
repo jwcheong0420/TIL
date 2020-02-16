@@ -3,7 +3,7 @@ package practice_coding.programmers.test_kit.hash.marathon;
 import java.util.HashMap;
 import java.util.Map.Entry;
 
-class Solution {
+class Solution3 {
     public String solution(String[] participant, String[] completion) {
         String answer = "";
 

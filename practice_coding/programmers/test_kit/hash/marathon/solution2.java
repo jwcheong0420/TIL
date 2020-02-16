@@ -2,7 +2,7 @@ package practice_coding.programmers.test_kit.hash.marathon;
 
 import java.util.Arrays;
 
-class Solution {
+class Solution2 {
     public String solution(String[] participant, String[] completion) {
         Arrays.sort(participant);
         Arrays.sort(completion);

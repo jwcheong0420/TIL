@@ -1,6 +1,6 @@
 package practice_coding.programmers.test_kit.dfs_bfs.target_number;
 
-class Solution {
+class Solution2 {
 
     public int solution(int[] numbers, int target) {
         int answer = calc(numbers, target, 0, 0);

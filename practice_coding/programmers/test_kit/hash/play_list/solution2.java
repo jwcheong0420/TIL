@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 
-class Solution {
+class Solution2 {
     public int[] solution(String[] genres, int[] plays) {
         class Song implements Comparable<Song> {
             int id;

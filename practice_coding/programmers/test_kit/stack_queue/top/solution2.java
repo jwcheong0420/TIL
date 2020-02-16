@@ -2,7 +2,7 @@ package practice_coding.programmers.test_kit.stack_queue.top;
 
 import java.util.Arrays;
 
-class Solution {
+class Solution2 {
     public int[] solution(int[] heights) {
         final int topNum = heights.length;
         int[] answer = new int[topNum];
@@ -20,7 +20,7 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        Solution sol = new Solution();
+        Solution2 sol = new Solution2();
         int[] heights = { 6, 9, 5, 7, 4 };
 
         int[] answer = sol.solution(heights);

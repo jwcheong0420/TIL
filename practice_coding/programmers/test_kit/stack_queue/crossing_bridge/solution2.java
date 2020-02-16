@@ -3,7 +3,7 @@ package practice_coding.programmers.test_kit.stack_queue.crossing_bridge;
 import java.util.LinkedList;
 import java.util.Queue;
 
-class Solution {
+class Solution2{
     public int solution(int bridge_length, int weight, int[] truck_weights) {
         Queue<Integer> crossing = new LinkedList<>();
         for (int i = 0; i < bridge_length; i++) {
@@ -26,7 +26,7 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        Solution sol = new Solution();
+        Solution2 sol = new Solution2();
         int bridge_length = 2;
         int weight = 10;
         int[] truck_weights = { 7, 4, 5, 6 };

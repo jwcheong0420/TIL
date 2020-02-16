@@ -2,7 +2,7 @@ package practice_coding.programmers.test_kit.heap.scoville;
 
 import java.util.PriorityQueue;
 
-class Solution {
+class Solution2 {
     public int solution(int[] scoville, int K) {
         PriorityQueue<Integer> foods = new PriorityQueue<>();
         for (int s : scoville) {
@@ -19,15 +19,5 @@ class Solution {
         }
 
         return foods.peek() >= K ? answer : -1;
-    }
-
-    public static void main(String[] args) {
-        Solution sol = new Solution();
-
-        int[] scoville = { 10, 2, 3, 9, 1, 12 };
-        int K = 7;
-
-        int answer = sol.solution(scoville, K);
-        System.out.println("answer : " + answer);
     }
 }

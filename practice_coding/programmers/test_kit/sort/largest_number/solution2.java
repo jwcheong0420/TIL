@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-class Solution {
+class Solution2 {
     public String solution(int[] numbers) {
         List<Integer> numList = new ArrayList<>();
         for (int num : numbers) {
@@ -30,7 +30,7 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        Solution sol = new Solution();
+        Solution2 sol = new Solution2();
         int[] numbers = {3, 30, 34, 5, 9};
         // int[] numbers = {0, 0, 0, 0};
 

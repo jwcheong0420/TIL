@@ -2,7 +2,7 @@ package practice_coding.programmers.test_kit.heap.ramen_factory;
 
 import java.util.PriorityQueue;
 
-class Solution {
+class Solution1 {
     public int solution(int stock, int[] dates, int[] supplies, int k) {
         int answer = 0;
         int flourAmount = stock;
@@ -20,17 +20,5 @@ class Solution {
         }
 
         return answer;
-    }
-
-    public static void main(String[] args) {
-        Solution sol = new Solution();
-
-        int stock = 4;
-        int[] dates = { 4, 10, 15 };
-        int[] supplies = { 20, 5, 10 };
-        int k = 30;
-
-        int answer = sol.solution(stock, dates, supplies, k);
-        System.out.println("answer : " + answer);
     }
 }

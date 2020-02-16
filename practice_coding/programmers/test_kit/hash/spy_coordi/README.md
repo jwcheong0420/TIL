@@ -10,7 +10,7 @@ https://programmers.co.kr/learn/courses/30/lessons/42578
 
 #### 문제 풀이 과정
 * 1차 - 정확성 & 효율성 통과
-    * [1차 제출 코드](solution1.java)
+    * [1차 제출 코드](Solution1.java)
         * key는 의상 종류, value는 의상 개수인 HashMap을 만든다
         * 의상 종류별로 개수 + 1을 모두 더하고, 마지막에 1을 빼면 모든 가짓수가 나옴
             * 개수 + 1을 하는 건, 착용하지 않았을 경우를 포함하는 것

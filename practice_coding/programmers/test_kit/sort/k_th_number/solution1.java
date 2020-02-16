@@ -2,7 +2,7 @@ package practice_coding.programmers.test_kit.sort.k_th_number;
 
 import java.util.Arrays;
 
-class Solution {
+class Solution1 {
     public int[] solution(int[] array, int[][] commands) {
         int count = commands.length;
         int[] answer = new int[count];
@@ -16,7 +16,7 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        Solution sol = new Solution();
+        Solution1 sol = new Solution1();
         int[] array = {1, 5, 2, 6, 3, 7, 4};
         int[][] commands = {{2, 5, 3}, {4, 4, 1}, {1, 7, 3}};
 

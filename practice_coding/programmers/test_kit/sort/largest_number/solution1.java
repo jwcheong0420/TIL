@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-class Solution {
+class Solution1 {
     private class Num implements Comparable<Num> {
         String numStr;
         Num (int num) {
@@ -40,7 +40,7 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        Solution sol = new Solution();
+        Solution1 sol = new Solution1();
         int[] numbers = {3, 30, 34, 5, 9};
 
         String answer = sol.solution(numbers);

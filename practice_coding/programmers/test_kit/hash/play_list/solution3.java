@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-class Solution {
+class Solution3 {
     public class Song implements Comparable<Song> {
         int id;
         int play;

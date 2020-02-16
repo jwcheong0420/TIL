@@ -11,13 +11,13 @@ https://programmers.co.kr/learn/courses/30/lessons/42583
 
 #### 문제 풀이 과정
 * 1차 - 통과
-    * [1차 제출 코드](solution1.java)
+    * [1차 제출 코드](Solution1.java)
         * 트럭 상태를 crossed, crossing, waiting으로 나누어서 생각해보았을 때, 셋 다 queue로 만들 필요가 없다.
             * waiting은 truck_weights의 인덱스를 증가시키면서 기억하면 되고
             * crossed는 굳이 관리할 이유가 없고, 마지막 트럭이 crossing이 되는 순간 answer(여태까지 걸린 시간) + bridge_length(길이가 n인 다리를 건너는 데에 n초가 걸리므로)이 곧 답이다.
             * crossing은 FIFO 특성이 강하고 무게의 합을 구할 때 Stream이 간편하므로 Queue로 선언하고 LinkedList로 구현했다.
         * **crossing.size()가 bridge_length와 같을 때만** crossing.poll()을 해야함 주의
 * 2차 - 통과
-    * [2차 제출 코드](solution2.java)
+    * [2차 제출 코드](Solution2.java)
         * crossing.size() == bridge_length 여부를 while loop에서 계속 확인할 필요 없이,  
         while loop 들어가기 전에 **bridge_length만큼 crossing에 offer(0)**을 해놓으면 되는 일이었다.

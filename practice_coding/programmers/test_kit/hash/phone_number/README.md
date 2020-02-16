@@ -7,7 +7,7 @@ https://programmers.co.kr/learn/courses/30/lessons/42577
 
 #### 문제 풀이 과정
 * 1차 - 정확성 & 효율성 통과
-    * [1차 제출 코드](solution1.java)
+    * [1차 제출 코드](Solution1.java)
         * phone_book을 Arrays.sort()로 정렬한다
             * ["119", "97674223", "1195524421"] 이던 배열이 ["119", "1195524421", "97674223"]와 같이 정렬됨
         * phone_book을 for loop으로 돌면서 phone_book[i+1]이 phone_book[i]를 포함하는 지 확인
@@ -19,6 +19,6 @@ https://programmers.co.kr/learn/courses/30/lessons/42577
     * 아뿔싸 문제점을 발견했다
         * contains()가 아니라 startsWith()를 사용해서 체크했어야 한다. 왜 통과했냐ㅋㅋㅋㅋ
 * 2차 - 정확성 & 효율성 통과
-    * [2차 제출 코드](solution2.java)
+    * [2차 제출 코드](Solution2.java)
     * 1차에서 contains()를 startsWith()로 바꾸었다
         * 테스트 케이스에 ["534", "34"]일 때 예상값 true를 추가해서 통과하는 것 확인

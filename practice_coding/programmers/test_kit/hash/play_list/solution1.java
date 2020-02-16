@@ -6,7 +6,7 @@ import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
-class Solution {
+class Solution1 {
     public static int[] solution(String[] genres, int[] plays) {
         class Song {
             int id;

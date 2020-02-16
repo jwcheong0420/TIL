@@ -2,7 +2,7 @@ package practice_coding.programmers.test_kit.hash.marathon;
 
 import java.util.Arrays;
 
-class Solution {
+class Solution1 {
     public String solution(String[] participant, String[] completion) {
         String answer = "";
 

@@ -13,7 +13,7 @@ https://programmers.co.kr/learn/courses/30/lessons/42579
 
 #### 문제 풀이 과정
 * 1차 - 정확도 테스트 통과(효율성 테스트 없음)
-    * [1차 제출 코드](solution1.java)
+    * [1차 제출 코드](Solution1.java)
         * genre를 key로 하고, Song(id와 재생횟수를 저장)의 ArrayList를 value로 하는 HashMap을 만든다
             * Song 대신에 Entry<Integer, Integer>로 해도 되긴 하지만 너무 더러워서...
         * play 합이 많은 genre 순으로 HashMap을 정렬하기 위해 ArrayList로 변환하고,  
@@ -22,7 +22,7 @@ https://programmers.co.kr/learn/courses/30/lessons/42579
         * int[]로 return해야하므로 stream을 이용하여 ArrayList를 int[]로 변환
     * 정말이지 너무 더럽다. 이 방법밖에 없는가? Song을 만든 김에 Comparator 말고 Comparable을 사용해볼까?
 * 2차 - 정확도 테스트 통과(효율성 테스트 없음)
-    * [2차 제출 코드](solution2.java)
+    * [2차 제출 코드](Solution2.java)
         * Comparable을 구현하는 Song(id, play을 멤버로 가짐)과,  
         마찬가지로 Comparable을 구현하는 Genre(ArrayList<Song>을 멤버로 가짐) class를 만든다
         * HashMap<String, Genre>로 genre별 Genre 인스턴스에 노래 정보를 넣고
@@ -31,7 +31,7 @@ https://programmers.co.kr/learn/courses/30/lessons/42579
         * int[]로 return해야하므로 stream을 이용하여 ArrayList를 int[]로 변환
     * 자료 구조를 두 개를 만들고 Comparator가 아니라 Comparable을 사용했는데, 아예 자료 구조를 하나만 만들고 stream으로 구현한 능력자도 있더라...
 * 3차 - 정확도 테스트 통과(효율성 테스트 없음)
-    * [3차 제출 코드](solution3.java)
+    * [3차 제출 코드](Solution3.java)
         * Stream은 아직도 잘 모르겠다...
         * 코드 길이는 짧지만, 막상 실행 시간은 더 길다. 그냥 이렇게도 짤 수 있다 정도만 알아두면 될 것 같다.
             * 소요 시간 비교 : 2차 6ms 대, 3차 19ms 대

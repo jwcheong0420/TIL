@@ -2,7 +2,7 @@ package practice_coding.programmers.test_kit.hash.spy_coordi;
 
 import java.util.HashMap;
 
-class Solution {
+class Solution1 {
     public int solution(String[][] clothes) {
         HashMap<String, Integer> closet = new HashMap<>();
         for (String[] clothing : clothes) {

@@ -2,7 +2,7 @@ package practice_coding.programmers.test_kit.hash.phone_number;
 
 import java.util.Arrays;
 
-class Solution {
+class Solution1 {
     public boolean solution(String[] phone_book) {
         Arrays.sort(phone_book);
         

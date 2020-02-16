@@ -6,7 +6,7 @@ https://programmers.co.kr/learn/courses/30/lessons/42746
 
 #### 문제 풀이 과정
 * 1차 - 실패(정확성 테스트 케이스 11개 중 1개 실패)
-    * [1차 제출 코드](solution1.java)
+    * [1차 제출 코드](Solution1.java)
         * 모든 경우의 수를 구하는 게 너무 힘들다고 생각해서 최대한 경우의 수를 줄이려 노력했다
         * sort 시 다음과 같은 규칙을 따르도록 Comparable을 implement한 Num class를 만듦었다
             * 자리 수가 같을 경우, 큰 수가 앞으로 온다
@@ -37,7 +37,7 @@ https://programmers.co.kr/learn/courses/30/lessons/42746
             * [아 [0, 0, 0, 0]일 때 0000이 되는게 문제군...](https://programmers.co.kr/learn/questions/8011)
 
 * 2차 - 통과
-    * [2차 제출 코드](solution2.java)
+    * [2차 제출 코드](Solution2.java)
         * 정렬 기준이 하나이기 때문에 굳이 Comparable을 구현하는 class를 만들 것까지는 없다고 판단해서  
         sort할 때 Comparator를 구현하는 방식으로 변경
             * 비교할 때, 자리 수가 같고 다름에 상관없이 비교해도 된다는 걸 깨닫고 수정함

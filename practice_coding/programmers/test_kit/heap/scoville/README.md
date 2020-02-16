@@ -9,7 +9,7 @@ https://programmers.co.kr/learn/courses/30/lessons/42626
 
 #### 문제 풀이 과정
 * 1차 - 실패(정확성 15/16, 효율성 5/5)
-    * [1차 제출 코드](solution1.java)
+    * [1차 제출 코드](Solution1.java)
         * 매번 음식들의 스코빌 지수를 정렬해야한다 -> offer 순서와 관계없이 우선순위를 유지하는 PriorityQueue를 사용
             * 가장 작은 스코빌 지수가 K 이상인지 확인
             * 가장 작은 스코빌 지수와 그 다음 작은 스코빌 지수를 구하여 섞어야 함
@@ -47,6 +47,6 @@ https://programmers.co.kr/learn/courses/30/lessons/42626
             ```
 * 2차 - 통과
     * 1차 제출 코드로는 **음식이 하나만 남았는데 스코빌 지수가 K 이상인 경우**를 감지하지 못한다...!
-    * [2차 제출 코드](solution2.java)
+    * [2차 제출 코드](Solution2.java)
         * while loop의 조건식을 foods.size() > 1뿐 아니라, foods.peek() < K도 만족하도록 변경
         * return 시 foods.peek() >= K이면 while loop동안 증가시켜온 answer를 리턴하고, 아니면 -1을 리턴한다

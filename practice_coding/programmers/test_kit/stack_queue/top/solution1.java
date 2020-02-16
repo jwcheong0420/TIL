@@ -3,7 +3,7 @@ package practice_coding.programmers.test_kit.stack_queue.top;
 import java.util.Arrays;
 import java.util.Stack;
 
-class Solution {
+class Solution1 {
     public int[] solution(int[] heights) {
         final int topNum = heights.length;
         int[] answer = new int[topNum];
@@ -30,7 +30,7 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        Solution sol = new Solution();
+        Solution1 sol = new Solution1();
         int[] heights = { 6, 9, 5, 7, 4 };
 
         int[] answer = sol.solution(heights);

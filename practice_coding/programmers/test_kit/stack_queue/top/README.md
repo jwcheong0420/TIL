@@ -16,12 +16,12 @@ https://programmers.co.kr/learn/courses/30/lessons/42588
     * 신호를 양쪽으로 쏘는 게 아니라 오른쪽에서 왼쪽으로 쏘는 모양이다
         * 탑 높이가 6, 9, 5, 7, 4 인 경우 첫번째 탑이 오른쪽으로 쏠 수 있으면 2가 표시되어야할 것 같은데 0인 것으로 보아서는...
         * stack의 pop()을 사용하라고 하는 거넹
-    * [1차 제출 코드](solution1.java)
+    * [1차 제출 코드](Solution1.java)
         * heights에 있던 탑의 높이들을 stack에 push()
         * stack에서 pop()하고, 남아있는 탑들 중에서 높이가 현재 pop된 탑보다 높은 첫 번째 탑을 찾아 그 인덱스(+1)를 저장
     * 와 stack 안 쓰고도 이중 for문으로 그냥 풀면 되네
 * 2차 - 통과
-    * [2차 제출 코드](solution2.java)
+    * [2차 제출 코드](Solution2.java)
         * heights를 뒤에서부터 돌면서 확인
             * 수신한 탑을 만나면 break;
         * 아 앞에서부터 확인하면 굳이 break를 하지 않아도 덮어씌워지겠군...
