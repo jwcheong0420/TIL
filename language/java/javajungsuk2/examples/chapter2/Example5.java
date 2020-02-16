@@ -1,4 +1,4 @@
-package javajungsuk2.chapter2;
+package language.java.javajungsuk2.examples.chapter2;
 
 public class Example5 {
 	public static void main(String[] args) {
