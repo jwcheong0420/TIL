@@ -14,3 +14,7 @@
     * dictionary에 key로 access하는 경우 시간복잡도 O(1)
     * total O(N)으로 문제 통과
     * [코드](solution.py)
+
+
+## Notes - 2차
+* [Java로 다시 풀어보았다](Solution.java)
