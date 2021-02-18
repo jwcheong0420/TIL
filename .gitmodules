@@ -1,0 +1,4 @@
+[submodule "language/learngo"]
+	path = language/learngo
+	url = https://github.com/jwcheong0420/learngo.git
+	branch = master
